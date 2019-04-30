@@ -7,10 +7,23 @@ $green: #4bb346
 $greenLT: #63cc5e
 $blue: #2b8bd1
 $blueLT: #42a6f0
+$red: #f23c2a
 $orange: #915325
 $orangLT: #a75a21
 
 $border: 1px solid #999
+
+// MIXINS
+@mixin boxShadow
+  box-shadow: 0 10px 20px #bbb
+
+@mixin textShadow
+  text-shadow: 0 0 10px #444
+
+// MEDIA QUERIES MIXINS
+@mixin lg
+  @media (max-width: 992px)
+    @content
 
 a:link,
 a:active,
@@ -29,64 +42,171 @@ li
   margin: 0
 .fa
   margin-right: 8px
+h1, h2, h3, h4, h5, h6
+  margin: 15px 0 25px 0
+  padding: 10px 0
 .title
   text-transform: uppercase
   border-bottom: $border
+h4
+  font-size: 1.2em
+.no-underscore
+  border: none
 
 *
   box-sizing: border-box
 body
   font-family: 'Ubuntu', sans-serif
-  line-height: 1.5
+  line-height: 1.8
+  color: #666
+  width: 100vw
+  overflow-x: hidden
 p
   font-weight: 300
 section
-  margin: 40px 0
+  width: 100%
+  margin: 50px 0
   padding: 30px
-  background: #fbfbfb
+  @include lg
+    padding: 0
 
 // SECTIONS
 
   // HEADER
 // LOCATION BAR
-.location
-  font-size: 1.2em
-  i
-    color: red
-.location-select
-  width: 60%
-  height: 36px
-  padding-left: 10px
-  font-weight: 300
-  border-radius: 3px
-.social
-  .fa
-    width: 40px
-    height: 35px
-    line-height: 37px
-    border-radius: 4px
-    color: white
-    transition: .4s
-  .fa-facebook
-    background: #3b5998
-    border: 1px solid #3b5998
-    &:hover
-      background: white
-      border: $border
-      color: #3b5998
-  .fa-twitter
-    background: #1DA1F2
-    border: 1px solid #1DA1F2
-    &:hover
-      background: white
-      border: $border
-      color: #1DA1F2
-  .fa-youtube
-    background: #cc181e
-    border: 1px solid #cc181e
-    &:hover
-      background: white
-      color: #cc181e
+header
+  .navigation
+    .location
+      font-size: 1.2em
+      i
+        color: red
+    .location-select
+      width: 60%
+      height: 36px
+      padding-left: 10px
+      font-weight: 300
+      border-radius: 3px
+    .social
+      .fa
+        width: 40px
+        height: 35px
+        line-height: 37px
+        border-radius: 4px
+        color: white
+        transition: .4s
+      .fa-facebook
+        background: #3b5998
+        border: 1px solid #3b5998
+        &:hover
+          background: white
+          border: $border
+          color: #3b5998
+      .fa-twitter
+        background: #1DA1F2
+        border: 1px solid #1DA1F2
+        &:hover
+          background: white
+          border: $border
+          color: #1DA1F2
+      .fa-youtube
+        background: #cc181e
+        border: 1px solid #cc181e
+        &:hover
+          background: white
+          color: #cc181e
+
+
+  // HERO SECTION
+#hero
+  margin: 0
+  padding: 0
+  .hero-image
+    position: relative
+    z-index: 0
+    width: 100vw
+    height: 750px
+    background: url('../images/hero-bg.jpg') 50% 0 no-repeat fixed
+    background-size: cover
+    display: table
+    margin-bottom: 300px
+    @include lg
+      margin-bottom: 40px
+    &::before
+      position: absolute
+      z-index: -1
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      content: ''
+      background: rgba(#444, 0.6)
+    .hero-title
+      width: 50%
+      margin: 200px auto 0 auto
+      text-align: center
+      color: white
+      @include textShadow
+      h1
+        margin-top: 0
+        padding-top: 0
+        font-size: 4.5em
+        font-weight: bold
+    .hero-features
+      width: 90%
+      position: absolute
+      top: 650px
+      left: 5%
+      @include boxShadow
+      @include lg
+        position: static
+        width: 100%
+      .feature-cell
+        padding: 40px
+        background: white
+        &:nth-child(2)
+          background: $green
+          color: white !important
+      i
+        color: $red
+        font-size: 2.5em
+
+  // ABOUT SECTION
+#about
+  .about-section-one,
+  .about-section-two,
+  .about-section-three
+    width: 100%
+    @include lg
+      margin: 40px 0
+  .about-section-one
+    .about-image
+      margin: 30px
+      min-height: 550px
+      background: url('../images/about-1.jpg')
+      background-size: cover
+      background-repeat: no-repeat
+      @include lg
+        margin: 0
+  .about-section-two
+    margin: 0
+    padding: 0
+    .about-image
+      min-height: 650px
+      background: url('../images/about-2.jpg')
+      background-size: cover
+      background-repeat: no-repeat
+      @include lg
+        margin: 0
+      .text-field
+        min-height: 650px
+        display: table
+        padding: 0
+        span
+          display: table-cell
+          color: white
+          background: rgba(#323232, 0.2)
+          padding: 90px
+          @include textShadow
 
 .scrollTop
   position: fixed
@@ -97,6 +217,7 @@ section
   border-radius: 5px
   opacity: .5
   transition: .5s
+  transform: translateX(100px)
   i
     margin: 0
     font-size: 2.5em
@@ -104,6 +225,8 @@ section
     padding: 10px 15px
   &:hover
     opacity: 1
+.showScrollTopButton
+  transform: translateX(0)
 
 footer
   padding: 30px
