@@ -1,0 +1,149 @@
+a:link,
+a:active,
+a:visited {
+  color: #915325;
+  text-decoration: none;
+  transition: .4s;
+}
+
+a:hover {
+  color: #a75a21;
+}
+
+a.btn {
+  color: #4bb346;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fa {
+  margin-right: 8px;
+}
+
+.title {
+  text-transform: uppercase;
+  border-bottom: 1px solid #999;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  line-height: 1.5;
+}
+
+p {
+  font-weight: 300;
+}
+
+section {
+  margin: 40px 0;
+  padding: 30px;
+  background: #fbfbfb;
+}
+
+.location {
+  font-size: 1.2em;
+}
+
+.location i {
+  color: red;
+}
+
+.location-select {
+  width: 60%;
+  height: 36px;
+  padding-left: 10px;
+  font-weight: 300;
+  border-radius: 3px;
+}
+
+.social .fa {
+  width: 40px;
+  height: 35px;
+  line-height: 37px;
+  border-radius: 4px;
+  color: white;
+  transition: .4s;
+}
+
+.social .fa-facebook {
+  background: #3b5998;
+  border: 1px solid #3b5998;
+}
+
+.social .fa-facebook:hover {
+  background: white;
+  border: 1px solid #999;
+  color: #3b5998;
+}
+
+.social .fa-twitter {
+  background: #1DA1F2;
+  border: 1px solid #1DA1F2;
+}
+
+.social .fa-twitter:hover {
+  background: white;
+  border: 1px solid #999;
+  color: #1DA1F2;
+}
+
+.social .fa-youtube {
+  background: #cc181e;
+  border: 1px solid #cc181e;
+}
+
+.social .fa-youtube:hover {
+  background: white;
+  color: #cc181e;
+}
+
+.scrollTop {
+  position: fixed;
+  z-index: 999;
+  bottom: 20px;
+  right: 20px;
+  border: 3px solid #4bb346;
+  border-radius: 5px;
+  opacity: .5;
+  transition: .5s;
+}
+
+.scrollTop i {
+  margin: 0;
+  font-size: 2.5em;
+  color: #4bb346;
+  padding: 10px 15px;
+}
+
+.scrollTop:hover {
+  opacity: 1;
+}
+
+footer {
+  padding: 30px;
+}
+
+footer form {
+  position: relative;
+}
+
+footer form label {
+  position: absolute;
+  top: 5px;
+  right: 9px;
+  font-size: 1.2em;
+  color: #4bb346;
+}
+
+footer form input[type="submit"] {
+  display: none;
+}
